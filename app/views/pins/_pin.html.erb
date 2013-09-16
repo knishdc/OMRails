@@ -2,13 +2,21 @@
 
 	<%= link_to (image_tag pin.image (:medium)), pin %>
 	
-    <p class="description"> <%= pin.description %> </p>
-    <p> <strong> Post by <%= pin.user.name %> </strong> </p> 
+    <p class="description"> 
+    	<%= pin.description %> 
+    </p>
+    
+    <p> 
+    	<strong> Post by <%= link_to pin.user.name, pin.user %> </strong> 
+    </p> 
 
 
 	<% if current_user == pin.user %>
-	<p> <%= link_to 'Edit', edit_pin_path(pin) %> <br>
- 	<%= link_to 'Destroy', pin, method: :delete, data: { confirm: 'Are you sure?' } %> </p> 
+	
+	<p> 
+		<%= link_to 'Edit', edit_pin_path(pin) %> <br>
+ 		<%= link_to 'Destroy', pin, method: :delete, data: { confirm: 'Are you sure?' } %> 
+ 	</p> 
     
     <% end %>
 
